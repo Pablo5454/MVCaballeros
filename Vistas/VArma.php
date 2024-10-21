@@ -7,18 +7,22 @@ class VArmas extends Vista{
     public function tablaArmas($armas){
         echo '<table class="table">';
         echo '<thead>';
+        echo '<td><a href="armaCreate.php">Crear arma</a></td>';
+
         echo '<tr>';
         echo '<th>ID</th>';
         echo '<th>Daño</th>';
         echo '<th>Tipo de arma</th>';
         echo '</thead>';
         echo '<tbody>';
+
         foreach ($armas as $arma) {
             echo '<tr>';
             echo '<td>' . $arma["id"] . '</td>';
             echo '<td>' . $arma["daño"] . '</td>';
             echo '<td>' . $arma["tipo"] . '</td>';
             echo '<td><a href="armaEdit.php?id=' . $arma["id"] . '">Editar</a></td>';
+            echo '<td><a href="armaDestroy.php?id=' . $arma["id"] . '">Eliminar</a></td>';
             echo '</tr>';
         }
         echo '</tbody>';
@@ -46,6 +50,31 @@ class VArmas extends Vista{
         </form>
 
         <?php
+    }
+
+    public function formCreateArma(){
+
+        echo '<form action="armaStore.php" method="post">';
+        echo '<div>';
+        echo '<label for="id">Id del arma</label>';
+        echo '<input type="text" id="id" name="id" required>';
+        echo '</div>';
+        echo '<div>';
+        echo '<label for="nombre">Daño</label>';
+        echo '<input type="text" id="daño" name="daño" required>';
+        echo '</div>';
+        echo '<div>';
+        echo '<label for="tipo">Tipo</label>';
+        echo '<input type="text" id="tipo" name="tipo" required>';
+        echo '</div>';
+        echo '<button type="submit">Guardar</button>';
+        
+        
+        echo '</form>';
+        echo '<a href="armas.php"><input type="submit" value="Volver" ></a>';
+    
+
+
     }
 
 }

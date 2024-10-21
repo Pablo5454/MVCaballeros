@@ -39,4 +39,24 @@ class MArmas extends Conexion{
         $sentencia->close();
     }
 
+    public function createArma($arma){
+
+        $sentencia = $this->getConexion()->prepare("INSERT INTO arma(id, daño, tipo) VALUES (?,?,?)");
+        $sentencia->bind_param("iis", $arma["id"], $arma["daño"], $arma["tipo"]);
+
+        $sentencia->execute();
+        $sentencia->close();
+
+    }
+
+    public function armaDestroy($arma){
+
+        $sentencia = $this->getConexion()->prepare("DELETE FROM arma WHERE id=?");
+        $sentencia->bind_param("i", $arma);
+
+        $sentencia->execute();
+        $sentencia->close();
+
+    }
+
 }
