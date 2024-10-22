@@ -3,11 +3,11 @@
 require(__DIR__ . '/../Modelo/MEscudos.php');
 
 $id = $_POST['id'];
-$daño = $_POST['daño'];
+$defensa = $_POST['defensa'];
 $tipo = $_POST['tipo'];
 
 $EscudoSelected['id'] = $id;
-$EscudoSelected['daño'] = $daño;
+$EscudoSelected['defensa'] = $defensa;
 $EscudoSelected['tipo'] = $tipo;
 
 $mEscudos = new MEscudos();

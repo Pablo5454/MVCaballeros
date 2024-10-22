@@ -29,7 +29,7 @@ class VEscudos extends Vista{
         echo '</table>';   
     }
 
-    public function formEditArma($EscudoSelected){
+    public function formEditEscudo($EscudoSelected){
         echo '<h1>FORMULARIO DE EDICIÓN</h1>';
         ?>
         <form action="escudoUpdate.php" method="post">
